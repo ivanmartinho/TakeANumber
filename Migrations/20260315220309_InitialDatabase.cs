@@ -1,0 +1,91 @@
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
+
+#nullable disable
+
+namespace TakeANumber.Migrations
+{
+    /// <inheritdoc />
+    public partial class InitialDatabase : Migration
+    {
+        /// <inheritdoc />
+        protected override void Up(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.CreateTable(
+                name: "Company",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "NVARCHAR(100)", maxLength: 100, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Company", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Spot",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "NVARCHAR(100)", maxLength: 100, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Spot", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TicketGroup",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "NVARCHAR(100)", maxLength: 100, nullable: false),
+                    Acronym = table.Column<string>(type: "NVARCHAR(3)", maxLength: 3, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TicketGroup", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TicketNumbers",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    TicketGroupId = table.Column<int>(type: "int", nullable: false),
+                    TicketType = table.Column<int>(type: "int", nullable: false),
+                    CompanyId = table.Column<int>(type: "int", nullable: false),
+                    Called = table.Column<bool>(type: "bit", nullable: false),
+                    Serviced = table.Column<bool>(type: "bit", nullable: false),
+                    GenerateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CalledDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ServicedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TicketNumbers", x => x.Id);
+                });
+        }
+
+        /// <inheritdoc />
+        protected override void Down(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.DropTable(
+                name: "Company");
+
+            migrationBuilder.DropTable(
+                name: "Spot");
+
+            migrationBuilder.DropTable(
+                name: "TicketGroup");
+
+            migrationBuilder.DropTable(
+                name: "TicketNumbers");
+        }
+    }
+}
