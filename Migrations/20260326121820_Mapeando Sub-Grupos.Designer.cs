@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TakeANumber.Data;
 
@@ -11,9 +12,11 @@ using TakeANumber.Data;
 namespace TakeANumber.Migrations
 {
     [DbContext(typeof(TakeANumberDataContext))]
-    partial class TakeANumberDataContextModelSnapshot : ModelSnapshot
+    [Migration("20260326121820_Mapeando Sub-Grupos")]
+    partial class MapeandoSubGrupos
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

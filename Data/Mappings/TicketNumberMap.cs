@@ -55,7 +55,10 @@ namespace TakeANumber.Data.Mappings
                 .WithMany()
                 .HasForeignKey("TicketGroupId")
                 .HasConstraintName("FK_TicketGroupTicketNumber_TicketGroupId")
-                .OnDelete(DeleteBehavior.ClientNoAction); ;
+                .OnDelete(DeleteBehavior.ClientNoAction);
+
+            //Indices 
+
         }
     }
 }

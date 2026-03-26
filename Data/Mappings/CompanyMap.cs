@@ -25,7 +25,6 @@ namespace TakeANumber.Data.Mappings
             builder.Property(x => x.Enabled)
                 .HasColumnName("Enabled")
                 .HasDefaultValue(true);
-
         }
     }
 }

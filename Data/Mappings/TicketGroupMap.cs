@@ -4,7 +4,7 @@ using TakeANumber.Models;
 
 namespace TakeANumber.Data.Mappings
 {
-    public class TicketGroupMap:IEntityTypeConfiguration<TicketGroup>
+    public class TicketGroupMap : IEntityTypeConfiguration<TicketGroup>
     {
         public void Configure(EntityTypeBuilder<TicketGroup> builder)
         {
@@ -12,7 +12,7 @@ namespace TakeANumber.Data.Mappings
 
             builder.HasKey(x => x.Id);
 
-            builder.Property(x=>x.Id)
+            builder.Property(x => x.Id)
                 .ValueGeneratedOnAdd()
                 .UseIdentityColumn();
 
@@ -31,6 +31,12 @@ namespace TakeANumber.Data.Mappings
             builder.Property(x => x.Enabled)
                 .HasColumnName("Enabled")
                 .HasDefaultValue(true);
+
+            //Relacionamentos
+            builder.HasOne(x => x.TicketGroupChildren)
+                .WithMany()
+                .HasForeignKey("ComapanyChildrenId")
+                .HasConstraintName("FK_CompanyCompany_CompanyChildrenId");
         }
     }
 }
