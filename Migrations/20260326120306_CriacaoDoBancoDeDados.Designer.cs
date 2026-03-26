@@ -12,8 +12,8 @@ using TakeANumber.Data;
 namespace TakeANumber.Migrations
 {
     [DbContext(typeof(TakeANumberDataContext))]
-    [Migration("20260325173438_acerto de mapeamento de datas")]
-    partial class acertodemapeamentodedatas
+    [Migration("20260326120306_CriacaoDoBancoDeDados")]
+    partial class CriacaoDoBancoDeDados
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -101,12 +101,7 @@ namespace TakeANumber.Migrations
                         .HasColumnType("NVARCHAR")
                         .HasColumnName("Name");
 
-                    b.Property<int>("ticketGroupId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("ticketGroupId");
 
                     b.ToTable("TicketGroup", (string)null);
                 });
@@ -159,17 +154,6 @@ namespace TakeANumber.Migrations
                     b.HasIndex("TicketGroupId");
 
                     b.ToTable("TicketNumbers");
-                });
-
-            modelBuilder.Entity("TakeANumber.Models.TicketGroup", b =>
-                {
-                    b.HasOne("TakeANumber.Models.TicketGroup", "ticketGroup")
-                        .WithMany()
-                        .HasForeignKey("ticketGroupId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("ticketGroup");
                 });
 
             modelBuilder.Entity("TakeANumber.Models.TicketNumber", b =>

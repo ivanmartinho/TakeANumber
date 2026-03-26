@@ -98,12 +98,7 @@ namespace TakeANumber.Migrations
                         .HasColumnType("NVARCHAR")
                         .HasColumnName("Name");
 
-                    b.Property<int>("ticketGroupId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("ticketGroupId");
 
                     b.ToTable("TicketGroup", (string)null);
                 });
@@ -156,17 +151,6 @@ namespace TakeANumber.Migrations
                     b.HasIndex("TicketGroupId");
 
                     b.ToTable("TicketNumbers");
-                });
-
-            modelBuilder.Entity("TakeANumber.Models.TicketGroup", b =>
-                {
-                    b.HasOne("TakeANumber.Models.TicketGroup", "ticketGroup")
-                        .WithMany()
-                        .HasForeignKey("ticketGroupId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("ticketGroup");
                 });
 
             modelBuilder.Entity("TakeANumber.Models.TicketNumber", b =>
