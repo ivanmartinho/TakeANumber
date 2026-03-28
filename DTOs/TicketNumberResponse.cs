@@ -13,4 +13,6 @@ public class TicketNumberResponse
         SpotName = spotName;
         TicketNumber = ticketNumber;
     }
+
+    public TicketNumberResponse() { }
 }
