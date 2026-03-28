@@ -7,6 +7,7 @@ using TakeANumber.Models;
 using TakeANumber.Extensions;
 using Azure.Core;
 using TakeANumber.Enums;
+using System.Reflection.Metadata.Ecma335;
 
 namespace TakeANumber.Controllers;
 [ApiController]
@@ -68,7 +69,7 @@ public class TicketNumberController : ControllerBase
             var number = await context.TicketNumbers.CountAsync();
             var ticket = new TicketNumber()
             {
-                Ticket = ticketGroup.Acronym + number.ToString("D"),
+                Ticket = ticketGroup?.Acronym + number.ToString("D"),
                 TicketGroup = ticketGroup,
                 Spot = new Spot { Id = request.SpotId },
                 Company = new Company { Id = request.CompanyId },
@@ -79,13 +80,7 @@ public class TicketNumberController : ControllerBase
             await context.SaveChangesAsync();
             var teste = TicketType.Priority;
             var retorno = teste.ToString();
-            var reponse = new TicketNumberResponse
-            {
-                Id = ticket.Id,
-                SpotName = ticket.Spot.Name,
-                TicketNumber = ticket.Ticket,
-                TicketType = ticket.TicketType.GetDisplayName()
-            };
+            var reponse = new TicketNumberResponse(ticket.Id, ticket.Spot.Name, ticket.Ticket, ticket.TicketType.GetDisplayName());
 
             return Ok(new ResultViewModel<TicketNumberResponse>(reponse));
         }
@@ -99,8 +94,77 @@ public class TicketNumberController : ControllerBase
         }
     }
 
-    //[HttpPut("v1/ticketnumbers/{ticket:string}")]
-    //public async Task<IActionResult> PutAsync(
-    //    [FromServices] TakeANumberDataContext context,
-    //    [FromRoute] string ticket)
+    [HttpPut("v1/ticketnumbers/call/{ticketNumber:string}")]
+    public async Task<IActionResult> CallAsync(
+        [FromServices] TakeANumberDataContext context,
+        [FromRoute] string ticketNumber,
+        [FromBody] TicketNumberRequest request)
+    {
+        try
+        {
+            var ticket = await context.TicketNumbers.FirstOrDefaultAsync(x => x.Ticket == ticketNumber);
+
+            if (ticket == null)
+                return BadRequest(new ResultViewModel<TicketNumberResponse>("Ticket não foi encontrado"));
+
+            if (ticket.Called)
+                return BadRequest(new ResultViewModel<TicketNumberResponse>("Ticket já foi chamado"));
+
+            ticket.Called = true;
+            ticket.CalledDate = DateTime.UtcNow;
+            ticket.Spot.Id = request.SpotId;
+            
+            context.TicketNumbers.Update(ticket);
+            await context.SaveChangesAsync();
+
+            var response = new TicketNumberResponse(ticket.Id, ticket.Spot.Name, ticket.Ticket, ticket.TicketType.GetDisplayName());
+
+            return Ok(new ResultViewModel<TicketNumberResponse>(response));
+        }
+        catch (DbUpdateException)
+        {
+            return StatusCode(500, new ResultViewModel<TicketNumberResponse>("TNX04 - Falha interna no servidor"));
+        }
+        catch (Exception)
+        {
+            return StatusCode(500, new ResultViewModel<TicketNumberResponse>("TNX05 - Falha interna no servidor"));
+        }
+
+    }
+
+    [HttpPut("v1/ticketnumbers/serviced/{ticketNumber:string")]
+    public async Task<IActionResult> ServicedAsync(
+        [FromServices]TakeANumberDataContext context,
+        [FromRoute]string ticketNumber,
+        [FromBody]TicketNumberRequest request)
+    {
+        try
+        {
+            var ticket = await context.TicketNumbers.FirstOrDefaultAsync(x => x.Ticket == ticketNumber);
+
+            if (ticket == null)
+                return BadRequest(new ResultViewModel<TicketNumberResponse>("Ticket não foi encontrado"));
+
+            if (ticket.Serviced)
+                return BadRequest(new ResultViewModel<TicketNumberResponse>("Ticket já foi atendido"));
+
+            ticket.Serviced = true;
+            ticket.ServicedDate = DateTime.UtcNow;
+
+            context.TicketNumbers.Update(ticket);
+            await context.SaveChangesAsync();
+
+            var respose = new TicketNumberResponse(ticket.Id, ticket.Ticket, ticket.Spot.Name, ticket.TicketType.GetDisplayName());
+
+            return Ok(new ResultViewModel<TicketNumberResponse>(respose));
+        }
+        catch (DbUpdateException)
+        {
+            return StatusCode(500, new ResultViewModel<TicketNumberResponse>("TNX06 - Falha interna no servidor"));
+        }
+        catch (Exception)
+        {
+            return StatusCode(500, new ResultViewModel<TicketNumberResponse>("TNX07 - Falha interna no servidor"));
+        }
+    }
 }
