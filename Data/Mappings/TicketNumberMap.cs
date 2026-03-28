@@ -58,6 +58,8 @@ namespace TakeANumber.Data.Mappings
                 .OnDelete(DeleteBehavior.ClientNoAction);
 
             //Indices 
+            builder.HasIndex(x => x.Ticket)
+                .IsUnique(false);
 
         }
     }
