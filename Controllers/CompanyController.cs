@@ -36,7 +36,7 @@ namespace TakeANumber.Controllers
                     total = count,
                     page,
                     pageSize,
-                    companies
+                    data = companies
                 }));
             }
             catch (Exception)

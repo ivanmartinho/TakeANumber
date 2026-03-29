@@ -37,7 +37,7 @@ namespace TakeANumber.Controllers
                     total = count,
                     page,
                     pageSize,
-                    spots
+                    data = spots
                 }));
             }
             catch (Exception)

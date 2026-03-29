@@ -38,7 +38,7 @@ public class TicketGroupController : ControllerBase
                 total = count,
                 page,
                 pageSize,
-                ticketGroups
+                data = ticketGroups
             }));
         }
         catch (Exception)
