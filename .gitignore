@@ -38,3 +38,5 @@
 /obj/TakeANumber.csproj.nuget.dgspec.json
 /obj/TakeANumber.csproj.nuget.g.props
 /obj/TakeANumber.csproj.nuget.g.targets
+/obj/Debug/net9.0
+/obj

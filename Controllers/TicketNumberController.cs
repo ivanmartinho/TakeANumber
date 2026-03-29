@@ -21,8 +21,8 @@ public class TicketNumberController : ControllerBase
         try
         {
             var ticket = await context.TicketNumbers
-            .FirstOrDefaultAsync(x => x.TicketType == request.TicketType 
-                    && x.TicketGroup.Id == request.TicketGroupId 
+            .FirstOrDefaultAsync(x => x.TicketType == request.TicketType
+                    && x.TicketGroup.Id == request.TicketGroupId
                     && x.Spot.Id == request.SpotId
                     && x.Called == false);
 
@@ -113,7 +113,7 @@ public class TicketNumberController : ControllerBase
             ticket.Called = true;
             ticket.CalledDate = DateTime.UtcNow;
             ticket.Spot.Id = request.SpotId;
-            
+
             context.TicketNumbers.Update(ticket);
             await context.SaveChangesAsync();
 
@@ -134,9 +134,9 @@ public class TicketNumberController : ControllerBase
 
     [HttpPut("v1/ticketnumbers/serviced/{ticketNumber:string")]
     public async Task<IActionResult> ServicedAsync(
-        [FromServices]TakeANumberDataContext context,
-        [FromRoute]string ticketNumber,
-        [FromBody]TicketNumberRequest request)
+        [FromServices] TakeANumberDataContext context,
+        [FromRoute] string ticketNumber,
+        [FromBody] TicketNumberRequest request)
     {
         try
         {
@@ -165,6 +165,29 @@ public class TicketNumberController : ControllerBase
         catch (Exception)
         {
             return StatusCode(500, new ResultViewModel<TicketNumberResponse>("TNX07 - Falha interna no servidor"));
+        }
+    }
+
+    [HttpDelete("v1/ticketnumbers/clearQueue")]
+    public async Task<IActionResult> ClearQueue(
+        [FromServices] TakeANumberDataContext context)
+    {
+        try
+        {
+            await context.Database.ExecuteSqlRawAsync(@"TRUNCATE TABLE [ticketNumber]");
+            return Ok(new ResultViewModel<dynamic>(new
+            {
+                response = "A limpeza da fila foi finalizada com sucesso."
+            }));
+        }
+        catch (DbUpdateException)
+        {
+            return StatusCode(500, new ResultViewModel<TicketNumberResponse>("TNX08 - Falha interna no servidor"));
+        }
+        catch
+        {
+            return StatusCode(500, new ResultViewModel<TicketNumberResponse>("TNX09 - Falha interna no servidor"));
+
         }
     }
 }
