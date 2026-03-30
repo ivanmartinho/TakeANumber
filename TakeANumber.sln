@@ -5,6 +5,10 @@ VisualStudioVersion = 17.14.37111.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TakeANumberApi", "TakeANumberApi.csproj", "{D260A2D8-DD4D-609D-7541-6A0167FDD303}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TakeANumberClient", "..\TakeANumberClient\TakeANumberClient.csproj", "{5DA47A97-11D8-9662-2341-B24143562F06}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TakeANumberShared", "..\TakeANumberShared\TakeANumberShared.csproj", "{7EC8C788-F923-40A0-BB64-7C6BEAAE274A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{D260A2D8-DD4D-609D-7541-6A0167FDD303}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D260A2D8-DD4D-609D-7541-6A0167FDD303}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D260A2D8-DD4D-609D-7541-6A0167FDD303}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DA47A97-11D8-9662-2341-B24143562F06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DA47A97-11D8-9662-2341-B24143562F06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DA47A97-11D8-9662-2341-B24143562F06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DA47A97-11D8-9662-2341-B24143562F06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EC8C788-F923-40A0-BB64-7C6BEAAE274A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EC8C788-F923-40A0-BB64-7C6BEAAE274A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EC8C788-F923-40A0-BB64-7C6BEAAE274A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EC8C788-F923-40A0-BB64-7C6BEAAE274A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
