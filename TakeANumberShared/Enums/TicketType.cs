@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace TakeANumberApi.Enums
+namespace TakeANumberShared.Enums
 {
     public enum TicketType
     {

@@ -1,4 +1,4 @@
-﻿using TakeANumberApi.Enums;
+﻿using TakeANumberShared.Enums;
 
 namespace TakeANumberApi.Models
 {

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using TakeANumberApi.Data;
 using TakeANumberApi.Extensions;
 using TakeANumberApi.Models;
-using TakeANumberApi.ViewModels;
+using TakeANumberShared.ViewModels;
 
 namespace TakeANumberApi.Controllers
 {

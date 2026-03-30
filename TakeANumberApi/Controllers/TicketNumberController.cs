@@ -2,12 +2,10 @@
 using Microsoft.EntityFrameworkCore;
 using TakeANumberApi.Data;
 using TakeANumberApi.DTOs;
-using TakeANumberApi.ViewModels;
-using TakeANumberApi.Models;
 using TakeANumberApi.Extensions;
-using Azure.Core;
-using TakeANumberApi.Enums;
-using System.Reflection.Metadata.Ecma335;
+using TakeANumberApi.Models;
+using TakeANumberShared.Enums;
+using TakeANumberShared.ViewModels;
 
 namespace TakeANumberApi.Controllers;
 [ApiController]
@@ -54,9 +52,9 @@ public class TicketNumberController : ControllerBase
     {
         var model = new EditorTicketNumberViewModel
         {
-            TicketGroup = new TicketGroup { Id = request.TicketGroupId },
-            Spot = new Spot { Id = request.SpotId },
-            Company = new Company { Id = request.CompanyId },
+            TicketGroupId = request.TicketGroupId,
+            SpotId = request.SpotId ,
+            CompanyId = request.CompanyId ,
             TicketType = request.TicketType,
         };
 
@@ -65,7 +63,7 @@ public class TicketNumberController : ControllerBase
 
         try
         {
-            var ticketGroup = await context.TicketGroups.FirstOrDefaultAsync(x => x.Id == request.TicketGroupId);
+            var ticketGroup = await context.TicketGroups.AsNoTracking().FirstOrDefaultAsync(x => x.Id == request.TicketGroupId);
             var number = await context.TicketNumbers.CountAsync();
             var ticket = new TicketNumber()
             {

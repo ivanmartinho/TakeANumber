@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using TakeANumberApi.Enums;
+using TakeANumberShared.Enums;
 using TakeANumberApi.Models;
 
 namespace TakeANumberApi.Data.Mappings

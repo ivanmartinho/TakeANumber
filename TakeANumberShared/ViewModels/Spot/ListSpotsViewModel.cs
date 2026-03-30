@@ -1,0 +1,8 @@
+﻿namespace TakeANumberShared.ViewModels;
+public class ListSpotsViewModel
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public bool Enabled { get; set; }
+
+}
