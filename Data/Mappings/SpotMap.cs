@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using TakeANumber.Models;
+using TakeANumberApi.Models;
 
-namespace TakeANumber.Data.Mappings
+namespace TakeANumberApi.Data.Mappings
 {
     public class SpotMap : IEntityTypeConfiguration<Spot>
     {

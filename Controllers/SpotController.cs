@@ -1,11 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using TakeANumber.Data;
-using TakeANumber.Extensions;
-using TakeANumber.Models;
-using TakeANumber.ViewModels;
+using System.Numerics;
+using TakeANumberApi.Data;
+using TakeANumberApi.Extensions;
+using TakeANumberApi.Models;
+using TakeANumberApi.ViewModels;
 
-namespace TakeANumber.Controllers
+namespace TakeANumberApi.Controllers
 {
     [ApiController]
     public class SpotController : ControllerBase
@@ -18,7 +19,7 @@ namespace TakeANumber.Controllers
         {
             try
             {
-                var count = await context.Spots.AsNoTracking().CountAsync();
+                var total = await context.Spots.AsNoTracking().CountAsync();
                 var spots = await context
                     .Spots
                     .AsNoTracking()
@@ -31,14 +32,15 @@ namespace TakeANumber.Controllers
                     .Take(pageSize)
                     .OrderBy(x => x.Name)
                     .ToListAsync();
-
-                return Ok(new ResultViewModel<dynamic>(new
+                var data = new PagedViewModel<List<ListSpotsViewModel>>()
                 {
-                    total = count,
-                    page,
-                    pageSize,
-                    data = spots
-                }));
+                    Data = spots,
+                    Page = page,
+                    PageSize = pageSize,
+                    Total = total
+                };
+
+                return Ok(new ResultViewModel<PagedViewModel<List<ListSpotsViewModel>>> (data));
             }
             catch (Exception)
             {

@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using TakeANumber.Enums;
-using TakeANumber.Models;
+using TakeANumberApi.Enums;
+using TakeANumberApi.Models;
 
-namespace TakeANumber.ViewModels;
+namespace TakeANumberApi.ViewModels;
 public class EditorTicketNumberViewModel
 {
     public int Id { get; set; }

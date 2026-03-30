@@ -1,4 +1,4 @@
-﻿namespace TakeANumber.Models
+﻿namespace TakeANumberApi.Models
 {
     public class TicketGroup
     {

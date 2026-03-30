@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using TakeANumber.Enums;
-using TakeANumber.Models;
+using TakeANumberApi.Enums;
+using TakeANumberApi.Models;
 
-namespace TakeANumber.Data.Mappings
+namespace TakeANumberApi.Data.Mappings
 {
     public class TicketNumberMap : IEntityTypeConfiguration<TicketNumber>
     {

@@ -1,6 +1,6 @@
-﻿using TakeANumber.Enums;
+﻿using TakeANumberApi.Enums;
 
-namespace TakeANumber.Models
+namespace TakeANumberApi.Models
 {
     public class TicketNumber
     {

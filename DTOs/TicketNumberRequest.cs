@@ -1,6 +1,6 @@
-﻿using TakeANumber.Enums;
+﻿using TakeANumberApi.Enums;
 
-namespace TakeANumber.DTOs;
+namespace TakeANumberApi.DTOs;
 public class TicketNumberRequest
 {
     public int TicketGroupId { get; set; }

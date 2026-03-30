@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TakeANumber.Data.Mappings;
-using TakeANumber.Models;
+using TakeANumberApi.Data.Mappings;
+using TakeANumberApi.Models;
 
-namespace TakeANumber.Data
+namespace TakeANumberApi.Data
 {
     public class TakeANumberDataContext : DbContext
     {

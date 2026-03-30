@@ -1,4 +1,4 @@
-﻿namespace TakeANumber.ViewModels;
+﻿namespace TakeANumberApi.ViewModels;
 public class ResultViewModel<T>
 {
     public T Data { get; set; }

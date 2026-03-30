@@ -1,4 +1,4 @@
-﻿namespace TakeANumber.ViewModels;
+﻿namespace TakeANumberApi.ViewModels;
 public class ListCompaniesViewModel
 {
     public int Id { get; set; }

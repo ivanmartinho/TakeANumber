@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using TakeANumber.Data;
-using TakeANumber.Extensions;
-using TakeANumber.Models;
-using TakeANumber.ViewModels;
+using TakeANumberApi.Data;
+using TakeANumberApi.Extensions;
+using TakeANumberApi.Models;
+using TakeANumberApi.ViewModels;
 
-namespace TakeANumber.Controllers
+namespace TakeANumberApi.Controllers
 {
     [ApiController]
     public class CompanyController : ControllerBase

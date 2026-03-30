@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace TakeANumber.Migrations
+namespace TakeANumberApi.Migrations
 {
     /// <inheritdoc />
     public partial class MapeandoSubGrupos : Migration

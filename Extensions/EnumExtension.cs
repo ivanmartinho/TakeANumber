@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Reflection;
 
-namespace TakeANumber.Extensions;
+namespace TakeANumberApi.Extensions;
 public static class EnumExtension
 {
     public static string GetDisplayName(this Enum value)

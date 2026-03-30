@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using TakeANumber.Data;
+using TakeANumberApi.Data;
 
 #nullable disable
 
-namespace TakeANumber.Migrations
+namespace TakeANumberApi.Migrations
 {
     [DbContext(typeof(TakeANumberDataContext))]
     [Migration("20260326120306_CriacaoDoBancoDeDados")]

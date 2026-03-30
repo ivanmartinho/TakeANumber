@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.Formatters.Xml;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
-namespace TakeANumber.Extensions;
+namespace TakeANumberApi.Extensions;
 public static class ModelStateExtension
 {
     public static List<string> GetErrros (this ModelStateDictionary modelState)

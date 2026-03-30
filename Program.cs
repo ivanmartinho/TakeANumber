@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
-using TakeANumber.Data;
+using TakeANumberApi.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 ConfigureAuthentication(builder);

@@ -1,4 +1,4 @@
-﻿namespace TakeANumber.DTOs;
+﻿namespace TakeANumberApi.DTOs;
 public class TicketNumberResponse
 {
     public int Id { get; set; }

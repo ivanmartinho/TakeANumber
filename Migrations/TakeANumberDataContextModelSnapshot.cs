@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using TakeANumber.Data;
+using TakeANumberApi.Data;
 
 #nullable disable
 
-namespace TakeANumber.Migrations
+namespace TakeANumberApi.Migrations
 {
     [DbContext(typeof(TakeANumberDataContext))]
     partial class TakeANumberDataContextModelSnapshot : ModelSnapshot

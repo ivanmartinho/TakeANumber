@@ -1,15 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using TakeANumber.Data;
-using TakeANumber.DTOs;
-using TakeANumber.ViewModels;
-using TakeANumber.Models;
-using TakeANumber.Extensions;
+using TakeANumberApi.Data;
+using TakeANumberApi.DTOs;
+using TakeANumberApi.ViewModels;
+using TakeANumberApi.Models;
+using TakeANumberApi.Extensions;
 using Azure.Core;
-using TakeANumber.Enums;
+using TakeANumberApi.Enums;
 using System.Reflection.Metadata.Ecma335;
 
-namespace TakeANumber.Controllers;
+namespace TakeANumberApi.Controllers;
 [ApiController]
 public class TicketNumberController : ControllerBase
 {

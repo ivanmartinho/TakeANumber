@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace TakeANumber.ViewModels;
+namespace TakeANumberApi.ViewModels;
 public class EditorTicketGroupViewModel
 {
     [Required(ErrorMessage = "O nome é obrigatório")]

@@ -1,6 +1,6 @@
-﻿using TakeANumber.Enums;
+﻿using TakeANumberApi.Enums;
 
-namespace TakeANumber.ViewModels;
+namespace TakeANumberApi.ViewModels;
 public class ListTicketNumbersViewModel
 {
     public int Id { get; set; }

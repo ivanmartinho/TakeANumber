@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace TakeANumber.Migrations
+namespace TakeANumberApi.Migrations
 {
     /// <inheritdoc />
     public partial class CriacaoDoBancoDeDados : Migration
