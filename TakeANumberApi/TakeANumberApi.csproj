@@ -18,8 +18,4 @@
     <Folder Include="Migrations\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\TakeANumberShared\TakeANumberShared.csproj" />
-  </ItemGroup>
-
 </Project>

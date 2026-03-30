@@ -432,16 +432,6 @@
           "build/Microsoft.NET.Sdk.WebAssembly.Pack.props": {},
           "build/Microsoft.NET.Sdk.WebAssembly.Pack.targets": {}
         }
-      },
-      "TakeANumberShared/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v9.0",
-        "compile": {
-          "bin/placeholder/TakeANumberShared.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/TakeANumberShared.dll": {}
-        }
       }
     },
     "net9.0/browser-wasm": {
@@ -874,16 +864,6 @@
         "build": {
           "build/Microsoft.NET.Sdk.WebAssembly.Pack.props": {},
           "build/Microsoft.NET.Sdk.WebAssembly.Pack.targets": {}
-        }
-      },
-      "TakeANumberShared/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v9.0",
-        "compile": {
-          "bin/placeholder/TakeANumberShared.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/TakeANumberShared.dll": {}
         }
       }
     }
@@ -1766,11 +1746,6 @@
         "tools/net9.0/Microsoft.NET.Sdk.WebAssembly.Pack.Tasks.dll",
         "tools/net9.0/Microsoft.NET.WebAssembly.Webcil.dll"
       ]
-    },
-    "TakeANumberShared/1.0.0": {
-      "type": "project",
-      "path": "../TakeANumberShared/TakeANumberShared.csproj",
-      "msbuildProject": "../TakeANumberShared/TakeANumberShared.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -1778,8 +1753,7 @@
       "Microsoft.AspNetCore.Components.WebAssembly >= 9.0.14",
       "Microsoft.AspNetCore.Components.WebAssembly.DevServer >= 9.0.14",
       "Microsoft.NET.ILLink.Tasks >= 9.0.14",
-      "Microsoft.NET.Sdk.WebAssembly.Pack >= 9.0.14",
-      "TakeANumberShared >= 1.0.0"
+      "Microsoft.NET.Sdk.WebAssembly.Pack >= 9.0.14"
     ]
   },
   "packageFolders": {
@@ -1814,11 +1788,7 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
-          "projectReferences": {
-            "C:\\WorkSpaces\\TakeANumber\\ivanmartinho\\TakeANumber\\TakeANumberShared\\TakeANumberShared.csproj": {
-              "projectPath": "C:\\WorkSpaces\\TakeANumber\\ivanmartinho\\TakeANumber\\TakeANumberShared\\TakeANumberShared.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {
