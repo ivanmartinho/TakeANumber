@@ -15,3 +15,7 @@
 /.vs/slnx.sqlite
 /TakeANumberShared/obj/Debug/net9.0
 /TakeANumberClient/obj/Debug/net9.0
+/TakeANumberClient/obj
+/TakeANumberShared/obj
+/TakeANumberClient/bin/Debug/net9.0
+/TakeANumberShared/bin/Debug/net9.0
