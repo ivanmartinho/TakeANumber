@@ -92,7 +92,7 @@ public class TicketNumberController : ControllerBase
         }
     }
 
-    [HttpPut("v1/ticketnumbers/call/{ticketNumber:string}")]
+    [HttpPut("v1/ticketnumbers/call/{ticketNumber}")]
     public async Task<IActionResult> CallAsync(
         [FromServices] TakeANumberDataContext context,
         [FromRoute] string ticketNumber,
@@ -130,7 +130,7 @@ public class TicketNumberController : ControllerBase
 
     }
 
-    [HttpPut("v1/ticketnumbers/serviced/{ticketNumber:string")]
+    [HttpPut("v1/ticketnumbers/serviced/{ticketNumber}")]
     public async Task<IActionResult> ServicedAsync(
         [FromServices] TakeANumberDataContext context,
         [FromRoute] string ticketNumber,
